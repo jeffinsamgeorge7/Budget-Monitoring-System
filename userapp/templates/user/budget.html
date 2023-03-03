@@ -1,0 +1,32 @@
+{%extends 'user/base.html' %}
+
+
+{% block cardtitle %}
+budgets
+{% endblock cardtitle %}
+
+{% block content %}
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>amount</th>
+        <th>date</th>
+   
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in budget %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.fdate}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

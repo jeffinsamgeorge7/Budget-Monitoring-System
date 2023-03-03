@@ -1,0 +1,38 @@
+{%extends 'user/base.html' %}
+
+
+{% block cardtitle %}
+<div style="display:flex;justify-content:space-between" >
+<div class="">Expense</div>
+<div class=""><a href="./create/" class ="btn btn-primary btn-sm ">new</a></div>
+</div>
+{% endblock cardtitle %}
+
+{% block content %}
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>amount</th>
+        <th>date</th>
+        <th>update</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.timestamp}}</td>
+        <td><a href="{{i.get_update_url}}" class="btn btn-sm btn-info">update</a></td>
+       
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
+

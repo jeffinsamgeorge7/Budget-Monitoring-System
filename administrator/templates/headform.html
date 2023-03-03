@@ -1,0 +1,26 @@
+{% extends 'departmenthead.html' %}
+{% block cardtitle %}
+department charge
+{% endblock cardtitle %}
+{% block content %}
+{% if messages %}
+
+    {% for message in messages %}
+    {% if message.tags %}
+    {% if message.tags == 'error' %}
+        
+    <div class="alert alert-danger">{{ message }}</div>
+    {% else %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endif %}
+    {% endif %}
+    
+    {% endfor %}
+{% endif %}
+<form method="post">
+{% csrf_token %}
+{{form1.as_p}}
+{{form2.as_p}}
+<input type="submit" value="create" class="btn btn-primary btn-block">
+</form>
+{% endblock content %}
